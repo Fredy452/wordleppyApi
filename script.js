@@ -2,16 +2,6 @@ window.addEventListener('load', init);
 function init(){
 
 let intentos = 6;
-// let ganado = 0;
-// let diccionario = ['PIZZA', 'VEJEZ', 'FEROZ', 'FREZA', 'VELOZ', 'BAZAR', 'JUEZS', 'c']
-// // Obtenemos una palabr aleatoria de diccionario
-// const palabra = diccionario[Math.floor(Math.random() * diccionario.length)];
-// console.log(palabra);
-// Usamos local storage para guardar el puntaje
-// localStorage.setItem('puntos', ganado);
-// let puntos = localStorage.getItem('puntos');
-// let puntosInt = parseInt(puntos);
-// console.log(puntosInt); 
 let palabra = "";
 let palabraUrl = "https://clientes.api.greenborn.com.ar/public-random-word?c=9&l=5";
 // creramos el fetch para obtener los datos de la api
@@ -23,7 +13,6 @@ fetch(palabraUrl)
     console.log(palabra);
   })
   .catch(error => console.error(error))
-  console.log(palabra); 
 
 
 
@@ -34,11 +23,16 @@ const button = document.getElementById("guess-button");
 const input = document.getElementById("guess-input");
 const ERROR = document.getElementById("error");
 const VIDA = document.getElementById("vida");
+const INSTRUCCION = document.getElementById("instruccion");
 VIDA.innerHTML = intentos;
+
+// antes que nada intruducimos las instrucciones
+INSTRUCCION.innerHTML = '<h3>Adivina la palabra</h3> <ul> <li> Tienes 6 intentos para adivinar la palabra oculta</> <li>Si es verde la casilla, entonces coincide con la poición de la palbra</li>  <li>Si es amarillo, entonces existe la letra pero no en su posición</li>'
 
 button.addEventListener('click', validarInput);
 input.addEventListener('keyup', () => {
         ERROR.innerHTML = "";
+        INSTRUCCION.remove();
         input.style.borderColor = '#ccc';
     if (event.key === 'Enter') {
         validarInput();
