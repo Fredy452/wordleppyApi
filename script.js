@@ -27,7 +27,7 @@ const INSTRUCCION = document.getElementById("instruccion");
 VIDA.innerHTML = intentos;
 
 // antes que nada intruducimos las instrucciones
-INSTRUCCION.innerHTML = '<h3>Adivina la palabra</h3> <ul> <li> Tienes 6 intentos para adivinar la palabra oculta</> <li>Si es verde la casilla, entonces coincide con la poición de la palbra</li>  <li>Si es amarillo, entonces existe la letra pero no en su posición</li>'
+INSTRUCCION.innerHTML = '<h3>Adivina la palabra</h3> <ul> <li> Tienes 6 intentos para adivinar la palabra oculta</> <li>Si la casilla es verde, entonces coincide con la poición de la palbra</li>  <li>Si es amarillo, entonces existe la letra pero no en su posición</li> </li>Suerte !!!</li>'
 
 button.addEventListener('click', validarInput);
 input.addEventListener('keyup', () => {
